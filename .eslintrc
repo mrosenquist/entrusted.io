@@ -12,7 +12,6 @@
   "env": {
     "browser": true,
     "node": true,
-    "jquery": true
   },
   "rules": {
     "no-unused-vars": [
@@ -28,7 +27,7 @@
         "props": false
       }
     ],
-    "no-console": 0,
+    "no-console": 1,
     "linebreak-style": 0,
     "no-use-before-define": 0,
     "import/no-extraneous-dependencies": 0,
@@ -53,7 +52,7 @@
     ],
     "quotes": [
       2,
-      "single",
+      "double",
       {
         "avoidEscape": true,
         "allowTemplateLiterals": true
@@ -63,7 +62,7 @@
       "error",
       {
         "trailingComma": "es5",
-        "singleQuote": true,
+        "singleQuote": false,
         "printWidth": 120
       }
     ],

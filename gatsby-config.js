@@ -6,12 +6,12 @@ module.exports = {
     // siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
+    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages`,
+        path: `${__dirname}/src/posts`,
         name: 'pages',
       },
     },
