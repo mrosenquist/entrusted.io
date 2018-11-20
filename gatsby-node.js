@@ -3,7 +3,8 @@ const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 // const { attachFields } = require('gatsby-plugin-node-fields');
 // TODO: https://github.com/gatsbyjs/gatsby/blob/master/docs/docs/adding-tags-and-categories-to-blog-posts.md
-
+// TODO: https://www.gatsbyjs.org/docs/add-seo-component/
+// TODO: https://www.gatsbyjs.org/docs/custom-html/
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 

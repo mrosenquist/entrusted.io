@@ -6,6 +6,12 @@ module.exports = {
     siteUrl: 'https://entrustedio.netlify.com',
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-sri',
+      options: {
+        hash: 'sha512',
+      },
+    },
     'gatsby-plugin-sass',
     {
       resolve: `gatsby-plugin-manifest`,
@@ -52,12 +58,37 @@ module.exports = {
         trackingId: 'UA-115020477-1',
         // Puts tracking script in the head instead of the body
         head: true,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
       },
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-feed`,
-    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          '/*': [
+            'X-Frame-Options: DENY',
+            'X-XSS-Protection: 1; mode=block',
+            'X-Content-Type-Options: nosniff',
+            'Referrer-Policy: no-referrer-when-downgrade',
+            'Content-Security-Policy-Report-Only: default-src "self" "unsafe-inline" "unsafe-eval" https: data: ; report-uri "https://entrustedio.report-uri.com/r/d/csp/wizard"',
+            'Server: none',
+            'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload',
+            'Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://entrustedio.report-uri.com/a/d/g"}],"include_subdomains":true}',
+            'NEL: {"report_to":"default","max_age":31536000,"include_subdomains":true}',
+          ],
+        }, // option to add more headers. `Link` headers are transformed by the below criteria
+        allPageHeaders: [
+          // "Link: </static/my-logo.png>; rel=preload; as=image",
+        ],
+      },
+    },
   ],
 };

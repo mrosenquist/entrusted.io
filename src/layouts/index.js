@@ -25,6 +25,7 @@ const LayoutWrapper = ({ children, title, isSize, style }) => (
         </HeroBody>
       )}
     </Hero>
+    <noscript>This site requires JavaScript to be enabled</noscript>
     <Container className="site__content">{children}</Container>
     <AppFooter />
   </div>
