@@ -1,15 +1,14 @@
-import React from 'react'
-import { Footer, Container, Content, Columns, Column, Icon } from 'bloomer'
+import React from 'react';
+import { Footer, Container, Content, Columns, Column, Icon } from 'bloomer';
 
 const AppFooter = () => (
   <Footer id="footer">
     <Container>
       <Content>
         <Columns>
-          <Column isFull>
+          <Column>
             <p>
-              Made with<Icon hasTextColor="danger" className="fa fa-heart" />
-              at <a href="https://cethyworks.io">cethyworks.io</a>
+              Made by Matt Rosenquist
             </p>
           </Column>
         </Columns>
@@ -18,13 +17,12 @@ const AppFooter = () => (
             The source code is licensed under <a target="_blank">MIT</a>.
           </p>
           <p>
-            The website content is licensed under{' '}
-            <a target="_blank">CC ANS 4.0</a>.
+            The website content is licensed under <a target="_blank">CC ANS 4.0</a>.
           </p>
         </Content>
       </Content>
     </Container>
   </Footer>
-)
+);
 
-export default AppFooter
+export default AppFooter;

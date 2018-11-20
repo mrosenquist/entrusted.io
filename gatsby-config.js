@@ -1,18 +1,31 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Entrusted.io',
     author: 'Matt Rosenquist',
     description: 'A starter blog demonstrating what Gatsby can do.',
     // siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
   },
   plugins: [
     'gatsby-plugin-sass',
-    'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Entrusted.io`,
+        short_name: `Entrusted`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#1d355a`,
+        display: `minimal-ui`,
+        icon: `static/images/entrusted-logo.png`, // This path is relative to the root of the site.
+        legacy: true,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/posts`,
+        path: `${__dirname}/src/pages`,
         name: 'pages',
+        ignore: ['**/.*'],
       },
     },
     {
@@ -22,7 +35,9 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 2000,
+              withWebp: true,
+              quality: 65,
             },
           },
           'gatsby-remark-prismjs',
@@ -31,5 +46,10 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-feed`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
   ],
 };

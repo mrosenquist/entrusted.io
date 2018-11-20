@@ -1,57 +1,42 @@
-import React from 'react'
+import React from 'react';
 // import Link from 'gatsby-link'
-import get from 'lodash/get'
-import { Container, Title, Column, Columns, Notification, Tile } from 'bloomer'
+import get from 'lodash/get';
+import { Column, Columns, Box, Section } from 'bloomer';
+import { graphql, Link } from 'gatsby';
+import Img from 'gatsby-image';
 import Layout from '../layouts';
 
-const IndexPage = ({
-  data,
-}) => (
-  <Layout>
-
-    <Tile isAncestor>
-      <Tile>Test</Tile>
-      <Tile>Test</Tile>
-
-    </Tile>
-
-
-    <Columns>
-      <Column>
-        Test
-      </Column>
-
-      <Column>
-        Test
-      </Column>
-    </Columns>
-    {/*<Columns isCentered>*/}
-      {/*<Column isSize='1/3'>*/}
-        {/*<Notification isColor='success' hasTextAlign='centered'> isOneThird </Notification>*/}
-      {/*</Column>*/}
-      {/*<Column isSize={{mobile: 8}}>*/}
-        {/*<Notification isColor='warning' hasTextAlign='centered'> isSize={{mobile: 8}} </Notification>*/}
-      {/*</Column>*/}
-      {/*<Column>*/}
-        {/*<Notification isColor='danger' hasTextAlign='centered'> Third column </Notification>*/}
-      {/*</Column>*/}
-      {/*<Column>*/}
-        {/*<Notification isColor='primary' hasTextAlign='centered'> Fourth column </Notification>*/}
-      {/*</Column>*/}
-    {/*</Columns>*/}
-    <Container hasTextAlign="centered">
-      <Title isSize="1">Gatsby + Bulma & Bloomer</Title>
-      <Title isSize="3">
-        Easy <strong>vertical centering</strong> in <strong>fullscreen</strong>
-      </Title>
-      <Title isSize="4">Include any content you want, it's always centered</Title>
-    </Container>
-    {/*{JSON.stringify(data)}*/}
+const IndexPage = ({ data }) => (
+  <Layout title={data.site.siteMetadata.title} isSize="medium">
+    <Section>
+      <Columns isMultiline isCentered>
+        {data.allMarkdownRemark &&
+          data.allMarkdownRemark.edges.map(e => {
+            const featuredImage = get(e, 'node.frontmatter.featuredImage.childImageSharp.fluid');
+            return (
+              <Column isSize="full" key={e.node.id}>
+                <Box>
+                  <Link to={e.node.fields.slug}>{e.node.frontmatter.title}</Link>
+                  {featuredImage && <Img fluid={featuredImage} style={{
+                    maxHeight: '20vh'
+                  }} />}
+                  <div>{e.node.excerpt}</div>
+                  <div>
+                    {e.node.frontmatter.date}
+                    {e.node.frontmatter.tags}
+                  </div>
+                </Box>
+              </Column>
+            );
+          })}
+      </Columns>
+    </Section>
   </Layout>
 );
 
-export default IndexPage
+export default IndexPage;
 
+// eslint-disable-next-line prettier/prettier
 export const pageQuery = graphql`
   query {
     site {
@@ -60,7 +45,10 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { published: { eq: true } }, fields: { slug: { regex: "//posts/.*/" } } }
+    ) {
       edges {
         node {
           id
@@ -68,6 +56,14 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            tags
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 1500) {
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
+                }
+              }
+            }
           }
           fields {
             slug
@@ -76,4 +72,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

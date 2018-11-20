@@ -52,7 +52,7 @@
     ],
     "quotes": [
       2,
-      "double",
+      "single",
       {
         "avoidEscape": true,
         "allowTemplateLiterals": true
@@ -62,7 +62,7 @@
       "error",
       {
         "trailingComma": "es5",
-        "singleQuote": false,
+        "singleQuote": true,
         "printWidth": 120
       }
     ],

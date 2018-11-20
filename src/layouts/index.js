@@ -1,66 +1,45 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 
-import 'font-awesome/css/font-awesome.css'
-import './all.scss'
+import 'font-awesome/css/font-awesome.css';
+import './all.scss';
 
-import {
-  Container,
-  Hero,
-  HeroHeader,
-  HeroBody,
-  HeroFooter,
-  Title,
-  Tabs,
-  TabList,
-  Tab,
-  TabLink,
-} from 'bloomer'
+import { Container, Hero, HeroHeader, HeroBody, Title } from 'bloomer';
 
-import AppHeader from '../components/Header'
-import AppFooter from '../components/Footer'
+import AppHeader from '../components/Header';
+import AppFooter from '../components/Footer';
 
-const TemplateWrapper = ({ children, title }) => (
-  <div className="site">
+const LayoutWrapper = ({ children, title, isSize, style }) => (
+  <div>
     <Helmet title={title} />
-    <Hero isFullHeight={false} isColor="primary" isSize="medium">
+    <Hero isColor="primary" isSize={isSize} style={style}>
       <HeroHeader>
         <AppHeader />
       </HeroHeader>
-
-      <HeroBody>
-        <Container hasTextAlign='centered'>
-          <Title>{title}</Title>
-        </Container>
-      </HeroBody>
-
-      {/*<HeroFooter>*/}
-        {/*<Container>*/}
-          {/*<Tabs isAlign="centered">*/}
-            {/*<TabList>*/}
-              {/*<Tab>*/}
-                {/*<TabLink>And this at the bottom</TabLink>*/}
-              {/*</Tab>*/}
-            {/*</TabList>*/}
-          {/*</Tabs>*/}
-        {/*</Container>*/}
-      {/*</HeroFooter>*/}
+      {isSize === 'medium' && (
+        <HeroBody>
+          <Container hasTextAlign="centered">
+            <Title>{title}</Title>
+          </Container>
+        </HeroBody>
+      )}
     </Hero>
-    <Container className="site__content">
-      {children}
-    </Container>
+    <Container className="site__content">{children}</Container>
     <AppFooter />
   </div>
 );
 
-TemplateWrapper.propTypes = {
-  children: PropTypes.object,
-  title: PropTypes.string
-}
+LayoutWrapper.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.object.isRequired,
+  isSize: PropTypes.string,
+  style: PropTypes.object,
+};
 
-TemplateWrapper.defaultProps = {
-  title: "Home | Gatsby + Bulma & Bloomer"
-}
+LayoutWrapper.defaultProps = {
+  isSize: 'medium',
+  style: null,
+};
 
-export default TemplateWrapper
+export default LayoutWrapper;

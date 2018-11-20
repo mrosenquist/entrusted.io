@@ -1,9 +1,10 @@
 ---
 title: So it begins ... but is it secure?
 date: "2015-03-15T22:11:03.284Z"
+published: true
+featuredImage: "./new-beginnings.jpg"
+tags:
 ---
-
-
 
 ## This is the beginning of the site Entrusted.io.
 
@@ -15,7 +16,7 @@ My foray into the world of blogging, but who knows what this site will become…
 - Best practises
 - Security with a skew towards security in Development
 - Coaching
-- Any relevantv resources I find on the way
+- Any relevant resources I find on the way
 
 ### ~~Setting up wordpress~~
 The WordPress interface is really noisy after installing a few plugins. You need plugins to get it to what seems a reasonable setup. However most of the plugins want you to register.

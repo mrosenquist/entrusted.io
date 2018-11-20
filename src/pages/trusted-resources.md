@@ -1,11 +1,10 @@
 ---
-title: Be careful what you demo
+title: Trusted Resources
 date: "2015-03-15T22:12:03.284Z"
-status: draft
-tags: security
+published: false
+tags: ["security"]
 author: Matt Rosenquist
 ---
-
 
 
 ## Podcasts:
