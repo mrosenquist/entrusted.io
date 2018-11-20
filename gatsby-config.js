@@ -78,7 +78,7 @@ module.exports = {
             'X-XSS-Protection: 1; mode=block',
             'X-Content-Type-Options: nosniff',
             'Referrer-Policy: no-referrer-when-downgrade',
-            'Content-Security-Policy-Report-Only: default-src "self" "unsafe-inline" "unsafe-eval" https: data: ; report-uri "https://entrustedio.report-uri.com/r/d/csp/wizard"',
+            'Content-Security-Policy-Report-Only: default-src "self" "unsafe-inline" "unsafe-eval" https: data: ; report-uri https://entrustedio.report-uri.com/r/d/csp/wizard',
             'Server: none',
             'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload',
             'Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://entrustedio.report-uri.com/a/d/g"}],"include_subdomains":true}',
