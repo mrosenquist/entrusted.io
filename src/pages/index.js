@@ -17,9 +17,14 @@ const IndexPage = ({ data }) => (
               <Column isSize="full" key={e.node.id}>
                 <Box>
                   <Link to={e.node.fields.slug}>{e.node.frontmatter.title}</Link>
-                  {featuredImage && <Img fluid={featuredImage} style={{
-                    maxHeight: '20vh'
-                  }} />}
+                  {featuredImage && (
+                    <Img
+                      fluid={featuredImage}
+                      style={{
+                        maxHeight: '20vh',
+                      }}
+                    />
+                  )}
                   <div>{e.node.excerpt}</div>
                   <div>
                     {e.node.frontmatter.date}

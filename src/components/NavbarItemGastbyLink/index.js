@@ -6,7 +6,7 @@ class NavbarItemGastbyLink extends React.PureComponent {
   subRender = props => {
     const { href, children } = props;
     return (
-      <Link {...props} to={href}>
+      <Link {...props} to={href} rel="noopener">
         {children}
       </Link>
     );
