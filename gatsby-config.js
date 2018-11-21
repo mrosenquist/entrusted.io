@@ -26,6 +26,14 @@ module.exports = {
         legacy: true,
       },
     },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/src/static`,
+    //     name: 'static',
+    //     ignore: ['**/.*', '**/*.md'],
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -56,17 +64,15 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: 'UA-115020477-1',
-        // Puts tracking script in the head instead of the body
         head: true,
-        // Setting this parameter is optional
         anonymize: true,
-        // Setting this parameter is also optional
         respectDNT: true,
       },
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-feed`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-offline`,
     {
@@ -78,15 +84,17 @@ module.exports = {
             'X-XSS-Protection: 1; mode=block',
             'X-Content-Type-Options: nosniff',
             'Referrer-Policy: no-referrer-when-downgrade',
-            "Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none';report-uri https://entrustedio.report-uri.com/r/d/csp/wizard",
+            "Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none'; require-sri-for script style; report-uri https://entrustedio.report-uri.com/r/d/csp/wizard",
             'Server: none',
             'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload',
             'Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://entrustedio.report-uri.com/a/d/g"}],"include_subdomains":true}',
             'NEL: {"report_to":"default","max_age":31536000,"include_subdomains":true}',
+            "Feature-Policy: usermedia '*'; sync-xhr 'self'; fullscreen 'self';  vibrate 'none'; geolocation 'none'; midi 'none'; notifications 'none'; push 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; vibrate 'none'; payment 'none' ",
           ],
         }, // option to add more headers. `Link` headers are transformed by the below criteria
         allPageHeaders: [
-          // "Link: </static/my-logo.png>; rel=preload; as=image",
+          'Link: </images/entrusted-logo-with-text.png>; rel=preload; as=image',
+          'Link: </images/header-background.png>; rel=preload; as=image',
         ],
       },
     },
