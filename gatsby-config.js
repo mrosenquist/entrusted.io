@@ -9,7 +9,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sri',
       options: {
-        hash: 'sha512',
+        hash: 'sha256',
       },
     },
     'gatsby-plugin-sass',
