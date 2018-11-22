@@ -88,7 +88,7 @@ module.exports = {
             'Server: none',
             'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload',
             // "Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none'; require-sri-for script style; report-uri https://entrustedio.report-uri.com/r/d/csp/wizard",
-            "Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none'; connect-src 'self'; font-src 'self'; img-src 'self'; script-src 'self' www.google-analytics.com; style-src 'self' ''; report-uri https://entrustedio.report-uri.com/r/d/csp/wizard",
+            "Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none'; connect-src 'self'; font-src 'self'; img-src 'self'; script-src 'self' www.google-analytics.com; style-src 'self' ''; require-sri-for script style; report-uri https://entrustedio.report-uri.com/r/d/csp/wizard",
             //"Feature-Policy: usermedia '*'; sync-xhr 'self'; fullscreen 'self';  vibrate 'none'; geolocation 'none'; midi 'none'; notifications 'none'; push 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; vibrate 'none'; payment 'none' ",
             "Feature-Policy:  sync-xhr 'self' entrustedio.report-uri.com; fullscreen 'self';  geolocation 'none'; midi 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; payment 'none' ",
             'Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://entrustedio.report-uri.com/a/d/g"}],"include_subdomains":true}',
