@@ -6,12 +6,6 @@ module.exports = {
     siteUrl: 'https://entrustedio.netlify.com',
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-sri',
-      options: {
-        hash: 'sha256',
-      },
-    },
     'gatsby-plugin-sass',
     {
       resolve: `gatsby-plugin-manifest`,
@@ -74,6 +68,12 @@ module.exports = {
     `gatsby-plugin-feed`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: 'gatsby-plugin-sri',
+      options: {
+        hash: 'sha256',
+      },
+    },
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-netlify`,
