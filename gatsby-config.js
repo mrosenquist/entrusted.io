@@ -90,7 +90,8 @@ module.exports = {
             'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload',
             'Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://entrustedio.report-uri.com/a/d/g"}],"include_subdomains":true}',
             'NEL: {"report_to":"default","max_age":31536000,"include_subdomains":true}',
-            "Feature-Policy: usermedia '*'; sync-xhr 'self'; fullscreen 'self';  vibrate 'none'; geolocation 'none'; midi 'none'; notifications 'none'; push 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; vibrate 'none'; payment 'none' ",
+            //"Feature-Policy: usermedia '*'; sync-xhr 'self'; fullscreen 'self';  vibrate 'none'; geolocation 'none'; midi 'none'; notifications 'none'; push 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; vibrate 'none'; payment 'none' ",
+            "Feature-Policy:  sync-xhr 'self'; fullscreen 'self';  geolocation 'none'; midi 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; payment 'none' ",
           ],
         }, // option to add more headers. `Link` headers are transformed by the below criteria
         allPageHeaders: [
