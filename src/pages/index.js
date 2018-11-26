@@ -1,43 +1,62 @@
 import React from 'react';
 // import Link from 'gatsby-link'
 import get from 'lodash/get';
-import { Column, Columns, Box, Section } from 'bloomer';
+import { Column, Columns, Title, Section } from 'bloomer';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import Layout from '../layouts';
 
-const IndexPage = ({ data }) => (
-  <Layout title={data.site.siteMetadata.title} isSize="medium">
-    <Section>
-      <Columns isMultiline isCentered>
-        {data.allMarkdownRemark &&
-          data.allMarkdownRemark.edges.map(e => {
-            const featuredImage = get(e, 'node.frontmatter.featuredImage.childImageSharp.fluid');
-            return (
-              <Column isSize="full" key={e.node.id}>
-                <Box>
-                  <Link to={e.node.fields.slug}>{e.node.frontmatter.title}</Link>
-                  {featuredImage && (
-                    <Img
-                      fluid={featuredImage}
-                      style={{
-                        maxHeight: '20vh',
-                      }}
-                    />
-                  )}
-                  <div>{e.node.excerpt}</div>
-                  <div>
-                    {e.node.frontmatter.date}
-                    {e.node.frontmatter.tags}
-                  </div>
-                </Box>
-              </Column>
-            );
-          })}
-      </Columns>
-    </Section>
-  </Layout>
-);
+class IndexPage extends React.PureComponent {
+  columnSize(index, total) {
+    if (index === 0) {
+      return 'full';
+    }
+
+    return '';
+  }
+
+  render = () => {
+    const { data } = this.props;
+    return (
+      <Layout title={data.site.siteMetadata.title} isSize="medium">
+        <Section>
+          <Columns isMultiline isCentered>
+            {data.allMarkdownRemark &&
+              data.allMarkdownRemark.edges.map((e, i) => {
+                const featuredImage = get(e, 'node.frontmatter.featuredImage.childImageSharp.fluid');
+                return (
+                  <Column isSize={this.columnSize(i, data.allMarkdownRemark.edges.length)} key={e.node.id}>
+                    <div className="post-item">
+                      {featuredImage && (
+                        <Img
+                          className="post-item__image"
+                          post
+                          fluid={featuredImage}
+                          style={{
+                            maxHeight: '20vh',
+                          }}
+                        />
+                      )}
+                      <div className="post-item__content">
+                        <Title tag="h2" isSize={4}>
+                          <Link to={e.node.fields.slug}>{e.node.frontmatter.title}</Link>
+                        </Title>
+                        <p>{e.node.excerpt}</p>
+                        <div>
+                          {e.node.frontmatter.date}
+                          {e.node.frontmatter.tags}
+                        </div>
+                      </div>
+                    </div>
+                  </Column>
+                );
+              })}
+          </Columns>
+        </Section>
+      </Layout>
+    );
+  };
+}
 
 export default IndexPage;
 

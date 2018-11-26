@@ -73,11 +73,10 @@ exports.createPages = ({ graphql, actions }) => {
         );
 
         posts.forEach((post, index) => {
-          const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-          const next = index === 0 ? null : posts[index - 1].node;
-          const { fields, fileAbsolutePath, frontmatter } = post.node;
+          const previous = get(posts, `[${index + 1}].node`, null);
+          const next = index > 0 ? get(posts[index - 1], 'node', null) : null;
+          const { fields } = post.node;
           const { slug } = fields;
-          // const image = findPublicImage(frontmatter.image, fileAbsolutePath);
           createPage({
             path: slug,
             component: postComponent,
@@ -85,7 +84,6 @@ exports.createPages = ({ graphql, actions }) => {
               slug,
               previous,
               next,
-              // image,
             },
           });
         });
@@ -95,7 +93,7 @@ exports.createPages = ({ graphql, actions }) => {
         );
 
         pages.forEach(page => {
-          const { fields, fileAbsolutePath, frontmatter } = page.node;
+          const { fields } = page.node;
           const { slug } = fields;
           // const image = findPublicImage(frontmatter.image, fileAbsolutePath);
           createPage({
@@ -122,6 +120,5 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value,
     });
-    // attachFields(node, createNodeField, descriptors);
   }
 };

@@ -1,18 +1,17 @@
 $primary: #333;
 $background: #444;
 $family-primary: Montserrat, sans-serif;
-//$background: green;
 $body-background-color: #16364e;
-//$body-background-color: #E3E3E3;
-//$footer-padding: 1.5rem 1.5rem 2rem;
 $slant: 2vw;
 $clip-path: polygon(-5% $slant, 105% 0, 105% calc(100%  - 2vw), -5% 100%);
-$clip-path-footer: polygon(-5% $slant, 105% 0, 105% 100%, -5% 100%);
+$clip-path-bottom-only: polygon(-5% 0, 105% 0, 105% calc(100%  - 2vw), -5% 100%);
+$clip-path-top-only: polygon(-5% $slant, 105% 0, 105% 100%, -5% 100%);
 
 @import "~bulma";
 .title--post_main {
   transform: skewY(-1.1deg);
   margin-bottom: 0!important;
+
   //text-shadow: 1px 0px 6px black;
 }
 
@@ -25,8 +24,8 @@ $clip-path-footer: polygon(-5% $slant, 105% 0, 105% 100%, -5% 100%);
 
 .hero {
   background: $primary no-repeat url("/images/header-background.png") center center;
-  min-height: calc(2vw + 3rem);
   background-size: cover;
+  min-height: calc(2vw + 3rem);
   clip-path: $clip-path;
   &-head {
     background: rgba(0, 0, 0, 0.3);
@@ -35,13 +34,42 @@ $clip-path-footer: polygon(-5% $slant, 105% 0, 105% 100%, -5% 100%);
   }
 }
 .section--post {
-  background: #E3E3E3;
+  background: #CED5E8;
   clip-path: $clip-path;
   padding-top: $slant;
   padding-bottom: 2rem;
 }
 
 .footer {
-  clip-path: $clip-path-footer;
+  background: $primary no-repeat url("/images/header-background.png") center center;
+  background-size: cover;
+  clip-path: $clip-path-top-only;
   padding: 3vw 1.5rem 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+body {
+  padding-bottom: 4.5rem;
+}
+
+.post-item {
+  background: #CED5E8;
+  clip-path: $clip-path;
+  padding-bottom: $slant;
+
+  & .gatsby-image-wrapper {
+    clip-path: $clip-path-bottom-only;
+  }
+
+  &__content {
+    padding: 1rem;
+
+    & h2.title {
+      transform-origin: left top;
+      transform: rotate(-1.1deg);
+    }
+  }
 }
