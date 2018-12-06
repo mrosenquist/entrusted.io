@@ -79,7 +79,7 @@ module.exports = {
             'Referrer-Policy: no-referrer-when-downgrade',
             'Server: none',
             'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload',
-            "Content-Security-Policy: connect-src 'self'; font-src 'self'; img-src https://*.cloudfront.net 'self'; script-src 'self' www.google-analytics.com; style-src 'unsafe-inline' 'self'; default-src 'none'; report-uri https://entrustedio.report-uri.com/r/d/csp/enforce",
+            "Content-Security-Policy: connect-src 'self'; font-src data: 'self'; img-src https://*.cloudfront.net 'self'; script-src 'self' www.google-analytics.com; style-src 'unsafe-inline' 'self'; default-src 'none'; report-uri https://entrustedio.report-uri.com/r/d/csp/enforce",
             "Feature-Policy: sync-xhr 'self'; fullscreen 'self'; geolocation 'none'; midi 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; payment 'none' ",
             'Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://entrustedio.report-uri.com/a/d/g"}],"include_subdomains":true}',
             'NEL: {"report_to":"default","max_age":31536000,"include_subdomains":true}',
