@@ -60,7 +60,7 @@ module.exports = {
     `gatsby-plugin-feed`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
-    // `gatsby-plugin-sri`,
+    `gatsby-plugin-sri`,
     {
       resolve: `gatsby-plugin-sri`,
       options: {
@@ -79,12 +79,12 @@ module.exports = {
             'Referrer-Policy: no-referrer-when-downgrade',
             'Server: none',
             'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload',
-            // "Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none'; connect-src 'self'; font-src 'self'; img-src 'self'; script-src 'self' www.google-analytics.com; style-src 'self' ''; require-sri-for script style; report-uri https://entrustedio.report-uri.com/r/d/csp/enforce",
-            "Content-Security-Policy: connect-src 'self'; font-src 'self'; img-src 'self'; script-src 'self' www.google-analytics.com; style-src 'unsafe-inline' 'self'; default-src 'none'; report-uri https://entrustedio.report-uri.com/r/d/csp/enforce",
-            // "Feature-Policy: usermedia '*'; sync-xhr 'self'; fullscreen 'self';  vibrate 'none'; geolocation 'none'; midi 'none'; notifications 'none'; push 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; vibrate 'none'; payment 'none' ",
+            "Content-Security-Policy: connect-src 'self'; font-src 'self'; img-src https://*.cloudfront.net 'self'; script-src 'self' www.google-analytics.com; style-src 'unsafe-inline' 'self'; default-src 'none'; report-uri https://entrustedio.report-uri.com/r/d/csp/enforce",
             "Feature-Policy: sync-xhr 'self'; fullscreen 'self'; geolocation 'none'; midi 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; payment 'none' ",
             'Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://entrustedio.report-uri.com/a/d/g"}],"include_subdomains":true}',
             'NEL: {"report_to":"default","max_age":31536000,"include_subdomains":true}',
+            // "Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; frame-ancestors 'none'; connect-src 'self'; font-src 'self'; img-src 'self'; script-src 'self' www.google-analytics.com; style-src 'self' ''; require-sri-for script style; report-uri https://entrustedio.report-uri.com/r/d/csp/enforce",
+            // "Feature-Policy: usermedia '*'; sync-xhr 'self'; fullscreen 'self';  vibrate 'none'; geolocation 'none'; midi 'none'; notifications 'none'; push 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; vibrate 'none'; payment 'none' ",
           ],
         }, // option to add more headers. `Link` headers are transformed by the below criteria
         allPageHeaders: [
