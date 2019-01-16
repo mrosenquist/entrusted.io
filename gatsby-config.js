@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'Entrusted.io',
+    title: 'Entrusted',
     author: 'Matt Rosenquist',
-    description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://entrustedio.netlify.com',
+    description: 'Blog and Profile site for Matt Rosenquist',
+    siteUrl: 'https://entrusted.io',
   },
   plugins: [
     'gatsby-plugin-sass',

@@ -11,18 +11,21 @@ import Layout from '../layouts';
 
 class PageTemplate extends React.PureComponent {
   render() {
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title');
     const {
       location,
-      data: { markdownRemark: page },
+      data: { markdownRemark: page, site: {siteMetadata: {title: siteTitle, author: primaryAuthor }}} ,
     } = this.props;
     const description = page.excerpt;
     const featuredImage = get(page, 'frontmatter.featuredImage.childImageSharp.fluid.src', null);
+    const title = `${page.frontmatter.title} | ${siteTitle}`;
 
     return (
       <Layout
         location={location}
-        title={`${page.frontmatter.title} | ${siteTitle}`}
+        title={title}
+        description={description}
+        featuredImage={featuredImage}
+        author
         style={
           featuredImage
             ? {
@@ -31,13 +34,7 @@ class PageTemplate extends React.PureComponent {
             : null
         }
       >
-        <Helmet
-          htmlAttributes={{ lang: 'en' }}
-          meta={[{ name: 'description', content: description }]}
-          title={`${page.frontmatter.title} | ${siteTitle}`}
-        />
         <Section className="section--post">
-
           <Content>
             <div dangerouslySetInnerHTML={{ __html: page.html }} />
           </Content>

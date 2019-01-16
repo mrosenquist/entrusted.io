@@ -3,13 +3,20 @@ $background: #444;
 $family-primary: Montserrat, sans-serif;
 $body-background-color: #16364e;
 $slant: 2vw;
-$clip-path: polygon(-5% $slant, 105% 0, 105% calc(100%  - 2vw), -5% 100%);
-$clip-path-bottom-only: polygon(-5% 0, 105% 0, 105% calc(100%  - 2vw), -5% 100%);
+$slant: 4vw;
+//$slant: 1vw;
+$skew: -1.1deg;
+$skew: -2.2deg;
+//$skew: -0.55deg;
+$post-background-color: #CED5E8;
+$post-background-color: #FFFFFF;
+$clip-path: polygon(-5% $slant, 105% 0, 105% calc(100%  - 4vw), -5% 100%);
+$clip-path-bottom-only: polygon(-5% 0, 105% 0, 105% calc(100%  - 4vw), -5% 100%);
 $clip-path-top-only: polygon(-5% $slant, 105% 0, 105% 100%, -5% 100%);
 
 @import "~bulma";
 .title--post_main {
-  transform: skewY(-1.1deg);
+  transform: skewY($skew);
   margin-bottom: 0!important;
 
   //text-shadow: 1px 0px 6px black;
@@ -29,12 +36,12 @@ $clip-path-top-only: polygon(-5% $slant, 105% 0, 105% 100%, -5% 100%);
   clip-path: $clip-path;
   &-head {
     background: rgba(0, 0, 0, 0.3);
-    transform: skewY(-1.1deg);
+    transform: skewY($skew);
     transform-origin: right top;
   }
 }
 .section--post {
-  background: #CED5E8;
+  background: $post-background-color;
   clip-path: $clip-path;
   padding-top: $slant;
   padding-bottom: 2rem;
@@ -56,7 +63,10 @@ body {
 }
 
 .post-item {
-  background: #CED5E8;
+  --width: calc(100% * 0.02);
+  border-width: var(--width);
+  content: var(--width);
+  background: $post-background-color;
   clip-path: $clip-path;
   padding-bottom: $slant;
 
@@ -69,7 +79,7 @@ body {
 
     & h2.title {
       transform-origin: left top;
-      transform: rotate(-1.1deg);
+      transform: rotate($skew);
     }
   }
 }
