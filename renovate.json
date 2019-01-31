@@ -9,5 +9,5 @@
   "timezone": "Europe/London",
   "ignoreDeps": [],
   "separateMinorPatch": true,
-  "assignees": ["mrosenquist"],
+  "assignees": ["mrosenquist"]
 }
