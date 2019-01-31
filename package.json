@@ -41,7 +41,7 @@
     "react-helmet": "^5.2.0"
   },
   "keywords": [
-    "gatsby"
+    "security"
   ],
   "license": "MIT",
   "scripts": {

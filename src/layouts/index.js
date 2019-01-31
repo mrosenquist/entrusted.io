@@ -19,6 +19,7 @@ const LayoutWrapper = props => (
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -30,7 +31,7 @@ const LayoutWrapper = props => (
       const { children, isSize, style, author } = props;
       const title = get(props, 'title', siteMetadata.title);
       const description = get(props, 'description', siteMetadata.description);
-      const featuredImage = get(props, 'featuredImage', '/images/logo-social.png');
+      const featuredImage = get(props, 'featuredImage', `${siteMetadata.siteUrl}/images/logo-social.png`);
       return (
         <div>
           <Helmet htmlAttributes={{ lang: 'en' }}>
