@@ -84,7 +84,7 @@ module.exports = {
               "connect-src 'self' https://*.cloudfront.net; prefetch-src 'self'",
               "font-src data: 'self' https://*.cloudfront.net",
               "img-src data: https://*.cloudfront.net 'self'",
-              "prefetch-src: 'self'",
+              // "prefetch-src: 'self'",
               "script-src 'unsafe-inline' 'self' https://www.google-analytics.com",
               "style-src 'unsafe-inline' 'self'",
               'report-uri https://entrustedio.report-uri.com/r/d/csp/enforce',
