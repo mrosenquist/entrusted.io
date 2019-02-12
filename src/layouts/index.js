@@ -56,7 +56,7 @@ const LayoutWrapper = props => (
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={featuredImage} />
           </Helmet>
-          <Hero isColor="primary" isSize={isSize} style={style}>
+          <Hero isColor="primary" isSize={isSize} style={style} className={isSize === 'medium' ? '' : 'hero--sticky'}>
             <HeroHeader>
               <AppHeader />
             </HeroHeader>
@@ -80,7 +80,7 @@ const LayoutWrapper = props => (
 LayoutWrapper.propTypes = {
   title: PropTypes.string,
   children: PropTypes.object.isRequired,
-  isSize: PropTypes.string,
+  isSize: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
   style: PropTypes.object,
 };
 

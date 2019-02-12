@@ -21,10 +21,10 @@ export default class AppHeader extends React.PureComponent {
           <Link href="/">
             <img src="/images/entrusted-logo.png" style={{ marginRight: 5 }} alt="Entrusted.io Logo" /> Entrusted
           </Link>
-          <NavbarItem href="https://twitter.com/AlgusDark" isHidden="desktop">
+          <NavbarItem href="https://github.com/mrosenquist" isHidden="desktop">
             <Icon className="fa fa-github" />
           </NavbarItem>
-          <NavbarItem href="https://twitter.com/AlgusDark" isHidden="desktop">
+          <NavbarItem href="https://www.linkedin.com/in/mattrosenquist/" isHidden="desktop">
             <Icon className="fa fa-linkedin" />
           </NavbarItem>
           <NavbarBurger isActive={mobileMenuActive} onClick={this.handleClick} />
@@ -36,7 +36,7 @@ export default class AppHeader extends React.PureComponent {
             <Link href="/policy">Policy</Link>
           </NavbarStart>
           <NavbarEnd>
-            <NavbarItem href="https://github.com/mrosenquist/entrusted.io" isHidden="touch">
+            <NavbarItem href="https://github.com/mrosenquist" isHidden="touch">
               <Icon className="fa fa-github" />
             </NavbarItem>
             <NavbarItem href="https://www.linkedin.com/in/mattrosenquist/" isHidden="touch">

@@ -1,20 +1,32 @@
 $primary: #333;
 $background: #444;
+$background: #444;
 $family-primary: Montserrat, sans-serif;
 $body-background-color: #16364e;
+$body-background-color: #e5e5e5;
+//$body-background-color: #b8bac6;
 $slant: 2vw;
-$slant: 4vw;
+//$slant: 4vw;
 //$slant: 1vw;
 $skew: -1.1deg;
-$skew: -2.2deg;
+//$skew: -2.2deg;
 //$skew: -0.55deg;
 $post-background-color: #CED5E8;
 $post-background-color: #FFFFFF;
-$clip-path: polygon(-5% $slant, 105% 0, 105% calc(100%  - 4vw), -5% 100%);
-$clip-path-bottom-only: polygon(-5% 0, 105% 0, 105% calc(100%  - 4vw), -5% 100%);
+$clip-path: polygon(-5% $slant, 105% 0, 105% calc(100%  - 2vw), -5% 100%);
+$clip-path-bottom-only: polygon(-5% 0, 105% 0, 105% calc(100%  - 2vw), -5% 100%);
 $clip-path-top-only: polygon(-5% $slant, 105% 0, 105% 100%, -5% 100%);
+$link: #000;
+
 
 @import "~bulma";
+
+body {
+  //background: radial-gradient(ellipse at center, #45484d 0%,#000000 100%);
+  background: radial-gradient(ellipse at center, #ffffff 0%,$body-background-color 100%);
+  min-height: 100vh;
+}
+
 .title--post_main {
   transform: skewY($skew);
   margin-bottom: 0!important;
@@ -27,6 +39,12 @@ $clip-path-top-only: polygon(-5% $slant, 105% 0, 105% 100%, -5% 100%);
   margin: 0 -5%;
   max-height: 45vh;
   min-height: 20vw;
+}
+
+.hero--sticky {
+  top: 0em;
+  z-index: 10;
+  position: sticky;
 }
 
 .hero {
@@ -78,8 +96,8 @@ body {
     padding: 1rem;
 
     & h2.title {
-      transform-origin: left top;
-      transform: rotate($skew);
+      //transform-origin: left top;
+      //transform: rotate($skew);
     }
   }
 }
