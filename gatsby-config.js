@@ -60,13 +60,12 @@ module.exports = {
     `gatsby-plugin-feed`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sri`,
-    {
-      resolve: `gatsby-plugin-sri`,
-      options: {
-        hash: 'sha256',
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-sri`,
+    //   options: {
+    //     hash: 'sha256',
+    //   },
+    // },
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-netlify`,
