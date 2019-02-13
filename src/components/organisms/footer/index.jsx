@@ -8,7 +8,7 @@ const AppFooter = () => (
         <Columns>
           <Column>
             <p>
-              Made by Matt Rosenquist
+              Created and Maintained by Matt Rosenquist
             </p>
           </Column>
         </Columns>

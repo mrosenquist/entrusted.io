@@ -1,19 +1,21 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
 import get from 'lodash/get';
 
 // import Bio from '../components/Bio'
 import { Section, Content, Title, Image } from 'bloomer';
-import Layout from '../layouts';
-
-// import { rhythm, scale } from '../utils/typography'
+import Layout from '../base';
 
 class PageTemplate extends React.PureComponent {
   render() {
     const {
       location,
-      data: { markdownRemark: page, site: {siteMetadata: {title: siteTitle, author: primaryAuthor }}} ,
+      data: {
+        markdownRemark: page,
+        site: {
+          siteMetadata: { title: siteTitle, author: primaryAuthor },
+        },
+      },
     } = this.props;
     const description = page.excerpt;
     const featuredImage = get(page, 'frontmatter.featuredImage.childImageSharp.fluid.src', null);

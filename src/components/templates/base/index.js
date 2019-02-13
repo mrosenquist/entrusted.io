@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { get } from 'lodash';
 import 'font-awesome/css/font-awesome.css';
-import './all.scss';
+import '../all.scss';
 import { StaticQuery, Link, graphql } from 'gatsby';
 import { Container, Hero, HeroHeader, HeroBody, Title } from 'bloomer';
 
-import AppHeader from '../components/Header';
-import AppFooter from '../components/Footer';
+import AppHeader from '../../organisms/header';
+import AppFooter from '../../organisms/footer';
 
 const LayoutWrapper = props => (
   <StaticQuery

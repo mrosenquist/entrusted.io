@@ -20,7 +20,7 @@ $clip-path-top-only: polygon(-5% $slant, 105% 0, 105% 100%, -5% 100%);
 $link: #000;
 
 
-@import "~bulma";
+@import "../../../node_modules/bulma";
 html {
   //background: radial-gradient(ellipse at center, #D3E3F7 0%,#77A6F7 100%);
   //background: radial-gradient(ellipse at center, #FEFFFF 0%,#DEF2F1 100%);
@@ -29,9 +29,9 @@ html {
 }
 
 body {
-  //background-color: #08182d;
   background-image: url('/images/noisy-texture.png');
   min-height: 100vh;
+  padding-bottom: 5rem;
 }
 
 .title--post_main {
@@ -60,9 +60,13 @@ body {
   min-height: calc(2vw + 3rem);
   clip-path: $clip-path;
   &-head {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
     transform: skewY($skew);
+    text-shadow: #000000 0px 0px 3px;
     transform-origin: right top;
+  }
+  h1 {
+    text-shadow: #000000 0px 0px 15px;
   }
 }
 .section--post {
@@ -84,18 +88,19 @@ body {
   right: 0;
 }
 
-body {
-  padding-bottom: 4.5rem;
-}
-
 .post-item {
-  --width: calc(100% * 0.02);
-  border-width: var(--width);
-  content: var(--width);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  transition-property: transform;
+  transition-duration: 750ms;
   background: $post-background-color;
   clip-path: $clip-path;
-  padding-bottom: $slant;
+  //padding-bottom: $slant;
   background: radial-gradient(ellipse at center, #ffffff 61%,#e5e5e5 100%);;
+
 
   & .gatsby-image-wrapper {
     clip-path: $clip-path-bottom-only;
@@ -125,25 +130,5 @@ body {
   .column.is-full-mobile:nth-child(odd) .post-item__image,
   .column.is-full-mobile:nth-child(odd) .post-item__image {
     height: 40vmin;
-  }
-}
-
-.date_bubble {
-  position: relative;
-  top: -2rem;
-  border-radius: 50%;
-  margin: 0rem auto -2rem;
-  background: black;
-  color: #fff;
-  height: 4rem;
-  width: 4rem;
-  text-align: center;
-  display: flex;
-  font-weight: bold;
-  justify-content: center;
-  flex-direction: column;
-
-  &__top {
-    font-size: 0.7rem;
   }
 }

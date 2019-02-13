@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, NavbarBrand, NavbarItem, Icon, NavbarBurger, NavbarStart, NavbarEnd, NavbarMenu } from 'bloomer';
-import Link from '../NavbarItemGastbyLink';
+import Link from '../../atoms/link';
 
 export default class AppHeader extends React.PureComponent {
   constructor(props) {
@@ -34,6 +34,7 @@ export default class AppHeader extends React.PureComponent {
             <Link href="/">Home</Link>
             <Link href="/profile">Profile</Link>
             <Link href="/policy">Policy</Link>
+            {/*<Link href="/trusted-resources">Resources</Link>*/}
           </NavbarStart>
           <NavbarEnd>
             <NavbarItem href="https://github.com/mrosenquist" isHidden="touch">

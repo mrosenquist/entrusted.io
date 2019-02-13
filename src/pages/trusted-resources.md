@@ -1,12 +1,12 @@
 ---
 title: Trusted Resources
 date: "2015-03-15T22:12:03.284Z"
-published: false
+published: true
 tags: ["security"]
 author: Matt Rosenquist
 description:
+featuredImage: "./resources.jpg"
 ---
-
 
 ## Podcasts:
 - [Security Now](https://twit.tv/shows/security-now)

@@ -1,14 +1,14 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import GatsbyLink from 'gatsby-link';
 import { NavbarItem } from 'bloomer';
 
-class NavbarItemGastbyLink extends React.PureComponent {
+class Link extends React.PureComponent {
   subRender = props => {
     const { href, children } = props;
     return (
-      <Link {...props} to={href} rel="noopener">
+      <GatsbyLink {...props} to={href} rel="noopener">
         {children}
-      </Link>
+      </GatsbyLink>
     );
   };
 
@@ -22,4 +22,4 @@ class NavbarItemGastbyLink extends React.PureComponent {
   };
 }
 
-export default NavbarItemGastbyLink;
+export default Link;

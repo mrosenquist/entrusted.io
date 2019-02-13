@@ -1,38 +1,11 @@
 import React from 'react';
-// import Link from 'gatsby-link'
-import get from 'lodash/get';
-import { Column, Columns, Title, Section } from 'bloomer';
-import { graphql, Link } from 'gatsby';
+import { Title } from 'bloomer';
+import { Link } from 'gatsby';
+import { get } from 'lodash';
 import Img from 'gatsby-image';
-import Layout from '../layouts';
+import DotDate from '../../molecules/dot-date';
 
-class IndexPage extends React.PureComponent {
-  columnSize(index, total) {
-    return { mobile: 'full', tablet: '2/3', desktop: '1/3', widescreen: '2/5' };
-  }
-
-  render = () => {
-    const {
-      data: { allMarkdownRemark },
-    } = this.props;
-    return (
-      <Layout isSize={false}>
-        <Section>
-          <Columns isMultiline isCentered>
-            {allMarkdownRemark &&
-              allMarkdownRemark.edges.map((e, i) => (
-                <Column isSize={this.columnSize(i, allMarkdownRemark.edges.length)} key={e.node.id}>
-                  <Post {...e.node} id={i} />
-                </Column>
-              ))}
-          </Columns>
-        </Section>
-      </Layout>
-    );
-  };
-}
-
-class Post extends React.PureComponent {
+class PostItem extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -103,55 +76,21 @@ class Post extends React.PureComponent {
     const { postStyle, imageStyle } = this.state;
     const featuredImageToUse = get(featuredImage, 'childImageSharp.fluid');
     return (
+      <Link to={slug}>
       <div className="post-item" style={postStyle} ref={this.ref} id={id}>
         {featuredImageToUse && <Img className="post-item__image" post fluid={featuredImageToUse} style={imageStyle} />}
-        <div className="post-item__date date_bubble">
-          <div className="date_bubble__top">{topDate}</div>
-          <div className="date_bubble__bottom">{bottomDate}</div>
-        </div>
+        <DotDate top={topDate} bottom={bottomDate} className="post-item__date" />
         <div className="post-item__content">
           <Title tag="h2" isSize={4}>
-            <Link to={slug}>{title}</Link>
+            {title}
           </Title>
           <p>{description || excerpt}</p>
           <div>{tags}</div>
         </div>
       </div>
+      </Link>
     );
   }
 }
 
-export default IndexPage;
-
-// eslint-disable-next-line prettier/prettier
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { published: { eq: true } }, fields: { slug: { regex: "//posts/.*/" } } }
-    ) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 100)
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-            tags
-            featuredImage {
-              childImageSharp {
-                fluid(maxWidth: 1500) {
-                  ...GatsbyImageSharpFluid_withWebp_noBase64
-                }
-              }
-            }
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }
-`;
+export default PostItem;

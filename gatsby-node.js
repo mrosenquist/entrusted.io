@@ -1,4 +1,4 @@
-const get = require('lodash/get');
+const { get } = require('lodash');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 // const { attachFields } = require('gatsby-plugin-node-fields');
@@ -9,8 +9,8 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
-    const postComponent = path.resolve('./src/templates/post.js');
-    const pageComponent = path.resolve('./src/templates/page.js');
+    const postComponent = path.resolve('./src/components/templates/post/index.jsx');
+    const pageComponent = path.resolve('./src/components/templates/page/index.jsx');
     resolve(
       graphql(
         `

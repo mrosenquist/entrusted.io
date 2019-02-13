@@ -2,13 +2,11 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import get from 'lodash/get';
+import { get } from 'lodash';
 
 // import Bio from '../components/Bio'
 import { Section, Content, Title } from 'bloomer';
-import Layout from '../layouts';
-
-// import { rhythm, scale } from '../utils/typography'
+import Layout from '../base';
 
 class PostTemplate extends React.PureComponent {
   render() {

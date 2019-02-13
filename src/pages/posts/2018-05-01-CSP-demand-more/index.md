@@ -20,7 +20,7 @@ If you consider the number of tools that a website may employ you can see just h
 1. **Usability Testing (A/B or Multivariate testing):** Manipulate the view that the user sees and track actions. This can change whole user journeys or payment methods.
 1. **External CDN:** Provides fast access to external resources that may provide any of the above or used as part of the core code.
 1. **Tag Manager:** Provides the marketing team to change what is loaded on the frontend of the website.
- 
+
 As a web developer, I can state that I have almost no control over what each of these may have access change or data exfiltrate. Therefore if any of the above were changed to do something more malicious, it would be difficult to know and stop. Additionally, when we use external scripts, that may be changed at any time outside of our control. There have been many cases of Malvertising already on well-respected sites, in most cases, the ad broker was not aware that the content it helped to serve was malicious.
 
 There is a way to prevent the loading of external content which has been altered, however, this technique known as “Subresource Integrity” (SRI) can only be applied to when the following conditions; the content does not change regularly and the content has a unique URL for each version. These conditions mean that it cannot work for any content which by its nature requires it to be dynamic, such as AD’s, A/B testing and tag managers.
