@@ -1,6 +1,7 @@
 ---
 title: "CSP: Demand More Of Your Frontend Third-Party Providers"
 date: "2015-05-01T22:11:03.284Z"
+description:
 published: true
 tags: ["security","policy"]
 author: Matt Rosenquist

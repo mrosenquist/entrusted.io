@@ -4,6 +4,7 @@ date: "2015-03-15T22:11:03.284Z"
 published: true
 featuredImage: "./new-beginnings.jpg"
 tags:
+description: false
 ---
 
 ## This is the beginning of the site Entrusted.io.
@@ -24,7 +25,7 @@ The WordPress interface is really noisy after installing a few plugins. You need
 *Got to the point where wordpress is not worth the effort, decided to go with ghost*
 
 
-### Setting up GHOST
+### ~~Setting up GHOST~~
 As I am setting up my first GHOST site I will update this post to reflect what I have done to help add security to the platform.
 
 - Put the site behind of Cloudflare

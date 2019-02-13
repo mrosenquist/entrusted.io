@@ -5,6 +5,7 @@ published: true
 tags: ["information"]
 author: Matt Rosenquist
 featuredImage: "./policy.jpg"
+description: 
 ---
 
 This site is a currently intended to be public data only. We do not store any information on you. However Google Analitics is used on this site to understand you, our visiters. 

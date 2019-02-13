@@ -79,8 +79,7 @@ const LayoutWrapper = props => (
 
 LayoutWrapper.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.object.isRequired,
-  isSize: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
+  isSize: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   style: PropTypes.object,
 };
 

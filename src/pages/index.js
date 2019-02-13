@@ -8,11 +8,7 @@ import Layout from '../layouts';
 
 class IndexPage extends React.PureComponent {
   columnSize(index, total) {
-    // if (index === 0) {
-    //   return 'full';
-    // }
-
-    return '';
+    return { mobile: 'full', tablet: '1/3', desktop: '1/3', widescreen: '1/4' };
   }
 
   render = () => {
@@ -86,7 +82,7 @@ class Post extends React.PureComponent {
 
   render() {
     const {
-      frontmatter: { featuredImage, title, date, tags },
+      frontmatter: { featuredImage, title, date, tags, description },
       fields: { slug },
       excerpt,
       id,
@@ -108,44 +104,16 @@ class Post extends React.PureComponent {
     const featuredImageToUse = get(featuredImage, 'childImageSharp.fluid');
     return (
       <div className="post-item" style={postStyle} ref={this.ref} id={id}>
-        {featuredImageToUse && (
-          <Img
-            className="post-item__image"
-            post
-            fluid={featuredImageToUse}
-            style={{
-              ...imageStyle,
-              height: '30vmin',
-              // maxHeight: '30vh',
-            }}
-          />
-        )}
-        <div
-          className="post-item__date date_bubble"
-          style={{
-            position: 'relative',
-            top: '-2rem',
-            borderRadius: '50%',
-            margin: '0rem auto -2rem',
-            background: 'black',
-            color: '#fff',
-            height: '4rem',
-            width: '4rem',
-            textAlign: 'center',
-            display: 'flex',
-            fontWeight: 'bold',
-            justifyContent: 'center',
-            flexDirection: 'column',
-          }}
-        >
-          <div className="date_bubble__top" style={{fontSize:'0.8rem'}}>{topDate}</div>
+        {featuredImageToUse && <Img className="post-item__image" post fluid={featuredImageToUse} style={imageStyle} />}
+        <div className="post-item__date date_bubble">
+          <div className="date_bubble__top">{topDate}</div>
           <div className="date_bubble__bottom">{bottomDate}</div>
         </div>
         <div className="post-item__content">
           <Title tag="h2" isSize={4}>
             <Link to={slug}>{title}</Link>
           </Title>
-          <p>{excerpt}</p>
+          <p>{description || excerpt}</p>
           <div>{tags}</div>
         </div>
       </div>
@@ -165,10 +133,11 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          excerpt(pruneLength: 250)
+          excerpt(pruneLength: 100)
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            description
             tags
             featuredImage {
               childImageSharp {

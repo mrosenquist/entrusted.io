@@ -4,6 +4,7 @@ date: "2015-03-15T22:12:03.284Z"
 published: true
 tags: ["security"]
 featuredImage: "./security.jpg"
+description: false
 ---
 
 We are all at risk and for the foreseeable future – it will only get worse. Computers were designed to be used as generalist machines. Lots of different software is designed for the longest time to be functional, but not necessarily secure, including your operating system. It is getting better, but legacy support means that old exploits never truly go away. This results in more and more vulnerabilities (ways that your machine is insecure) and with more information flowing around the web, email and a myriad of ways –  taking advantage of these is ever growing. Unfortunately, we all have to bear the responsibility of being diligent these days, so being wary of every link, every attachment regardless of who it was sent from.

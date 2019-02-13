@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Entrusted',
     author: 'Matt Rosenquist',
-    description: 'Blog and Profile site for Matt Rosenquist',
+    description: 'Blog and Profile site that focuses on security, development and parasitism.',
     siteUrl: 'https://entrusted.io',
   },
   plugins: [
