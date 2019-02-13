@@ -8,7 +8,7 @@ import Layout from '../layouts';
 
 class IndexPage extends React.PureComponent {
   columnSize(index, total) {
-    return { mobile: 'full', tablet: '1/3', desktop: '1/3', widescreen: '1/4' };
+    return { mobile: 'full', tablet: '2/3', desktop: '1/3', widescreen: '2/5' };
   }
 
   render = () => {
