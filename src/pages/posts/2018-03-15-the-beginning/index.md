@@ -19,17 +19,28 @@ My foray into the world of blogging, but who knows what this site will become…
 - Coaching
 - Any relevant resources I find on the way
 
-### ~~Setting up wordpress~~
+### The Tech
+
+_After many attempts I have now settled on a technology, see below_
+
+Ended on using `Github -> Gatsby -> Netlify <- Cloudflare`
+
+*Reasons:*
+ - I am a developer and this approach allows me to try static generated sites
+ - 100% Free
+ - Secure (Headers and all)
+ - Fast... Really, Really fast
+
+### The false starts
+
+#### wordpress
 The WordPress interface is really noisy after installing a few plugins. You need plugins to get it to what seems a reasonable setup. However most of the plugins want you to register.
 
 *Got to the point where wordpress is not worth the effort, decided to go with ghost*
 
 
-### ~~Setting up GHOST~~
-As I am setting up my first GHOST site I will update this post to reflect what I have done to help add security to the platform.
+#### GHOST
+Ghost is a nice but solution. However it's not a PWA/SPA and the hosting options are limited.
+I did run it on digital ocean for a while $5 vs Ghost hosted option $36 per month. Which was too much for me.
 
-- Put the site behind of Cloudflare
-- Limit the firewall of my host to only accept incoming requests via - Cloudflare
-- TBC
-
-
+If you know you are going to stick with this definitely worth trying Ghost.
