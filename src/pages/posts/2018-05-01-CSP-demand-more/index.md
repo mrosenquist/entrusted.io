@@ -64,7 +64,9 @@ https://www.troyhunt.com/locking-down-your-website-scripts-with-csp-hashes-nonce
  
 #### My personal top tip is to start with:
 
-`Content-Security-Policy: default-src ‘none’;`
+```
+Content-Security-Policy: default-src ‘none’;
+```
 
 Which blocks everything; From there include what you need specifically against the relevant content type. Chrome and Firefox will show you what is blocked in the console.
 
