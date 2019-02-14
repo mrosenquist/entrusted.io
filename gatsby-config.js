@@ -108,7 +108,7 @@ module.exports = {
           ],
         }, // option to add more headers. `Link` headers are transformed by the below criteria
         allPageHeaders: [
-          'Link: </images/entrusted-logo-with-text.png>; rel=preload; as=image',
+          'Link: </images/entrusted-logo.png>; rel=preload; as=image',
           'Link: </images/noisy-texture.png>; rel=preload; as=image',
         ],
       },
