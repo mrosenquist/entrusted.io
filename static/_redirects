@@ -1,0 +1,4 @@
+# Redirect default Netlify subdomain to primary domain
+http://entrustedio.netlify.com/* https://entrusted.io/:splat 301!
+https://entrustedio.netlify.com/* https://entrusted.io/:splat 301!
+http://entrusted.io/* https://entrusted.io/:splat 301!
