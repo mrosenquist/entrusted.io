@@ -1,6 +1,8 @@
 # gatsby-starter-bloomer
 A Gatsby starter based on [Bulma](https://bulma.io/) and [Bloomer](https://bloomer.js.org/).
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/aa29cd72-f267-4ada-b539-eda419a7a7b9/deploy-status)](https://app.netlify.com/sites/entrustedio/deploys)
+
 [Demo](https://gatsby-starter-bloomer.netlify.com/)
 
 For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
