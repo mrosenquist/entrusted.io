@@ -79,7 +79,7 @@ module.exports = {
             'Server: none',
             'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload',
             `Content-Security-Policy: ${[
-              "default-src 'none'",
+              "default-src 'self'",
               "connect-src 'self' https://*.cloudfront.net; prefetch-src 'self'",
               "font-src data: 'self' https://*.cloudfront.net",
               "img-src data: https://*.cloudfront.net 'self'",
