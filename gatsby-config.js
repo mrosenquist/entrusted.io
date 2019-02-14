@@ -60,12 +60,12 @@ module.exports = {
     `gatsby-plugin-feed`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
-    // {
-    //   resolve: `gatsby-plugin-sri`,
-    //   options: {
-    //     hash: 'sha256',
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-sri`,
+      options: {
+        hash: 'sha256',
+      },
+    },
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-netlify`,
@@ -110,6 +110,7 @@ module.exports = {
         allPageHeaders: [
           'Link: </images/entrusted-logo.png>; rel=preload; as=image',
           'Link: </images/noisy-texture.png>; rel=preload; as=image',
+          'Link: </images/header-background.png>; rel=preload; as=image',
         ],
       },
     },

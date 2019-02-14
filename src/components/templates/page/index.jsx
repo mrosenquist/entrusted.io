@@ -37,18 +37,7 @@ class PageTemplate extends React.PureComponent {
         }
       >
         <Section className="section--post">
-          <Content>
-            <div dangerouslySetInnerHTML={{ __html: page.html }} />
-          </Content>
-          <hr />
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '1.5rem',
-            }}
-          >
-            {page.frontmatter.date}
-          </div>
+          <Content dangerouslySetInnerHTML={{ __html: page.html }} />
         </Section>
       </Layout>
     );

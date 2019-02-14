@@ -7,7 +7,7 @@ import { get } from 'lodash';
 // import Bio from '../components/Bio'
 import { Section, Content, Title } from 'bloomer';
 import Layout from '../base';
-import DotDate from '../../organisms/post-item';
+import DotDate from '../../molecules/dot-date';
 
 class PostTemplate extends React.PureComponent {
   render() {
@@ -18,7 +18,7 @@ class PostTemplate extends React.PureComponent {
       data: { markdownRemark: post },
     } = this.props;
     const description = post.excerpt;
-    const featuredImage = get(post, 'frontmatter.featuredImage.childImageSharp.fluid');
+    const featuredImage = get(post, 'frontmatter.featuredImage.childImageSharp.fluid', '/images/header-background.png');
 
     return (
       <Layout location={location} isSize="small" title={`${post.frontmatter.title} | ${siteTitle}`}>
@@ -31,9 +31,7 @@ class PostTemplate extends React.PureComponent {
           <Title className="title--post_main">{post.frontmatter.title}</Title>
           {featuredImage && <Img className="image--post_main" fluid={featuredImage} />}
           <DotDate date={post.frontmatter.date} className="post-item__date" />
-          <Content>
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
-          </Content>
+          <Content dangerouslySetInnerHTML={{ __html: post.html }} />
           <hr
             style={
               {
@@ -55,14 +53,22 @@ class PostTemplate extends React.PureComponent {
           >
             <li>
               {previous && (
-                <Link to={previous.fields.slug} rel="prev">
+                <Link
+                  to={previous.fields.slug}
+                  rel="prev"
+                  style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                >
                   ← {previous.frontmatter.title}
                 </Link>
               )}
             </li>
             <li>
               {next && (
-                <Link to={next.fields.slug} rel="next">
+                <Link
+                  to={next.fields.slug}
+                  rel="next"
+                  style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                >
                   {next.frontmatter.title} →
                 </Link>
               )}

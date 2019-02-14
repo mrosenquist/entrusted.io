@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, NavbarBrand, NavbarItem, Icon, NavbarBurger, NavbarStart, NavbarEnd, NavbarMenu } from 'bloomer';
-import Link from '../../atoms/link';
+import Link from '../../atoms/navbar-link';
 
 export default class AppHeader extends React.PureComponent {
   constructor(props) {
