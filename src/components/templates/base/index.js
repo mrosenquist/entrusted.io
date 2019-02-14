@@ -30,6 +30,7 @@ const LayoutWrapper = props => (
       } = data;
       const { children, isSize, style, author } = props;
       const title = get(props, 'title', siteMetadata.title);
+      const siteUrl = get(props, 'siteUrl', 'https://entrusted.io');
       const description = get(props, 'description', siteMetadata.description);
       const featuredImage = get(props, 'featuredImage', `${siteMetadata.siteUrl}/images/logo-social.png`);
       return (
@@ -39,13 +40,13 @@ const LayoutWrapper = props => (
             <title>{title}</title>
             <meta name="description" content={description} />
             <meta name="author" content={author} />
-            <link rel="canonical" href="http://mysite.com/example" />
+            <link rel="canonical" href={siteUrl} />
             {/* Google / Search Engine Tags */}
             <meta itemProp="name" content={title} />
             <meta itemProp="description" content={description} />
             <meta itemProp="image" content={featuredImage} />
             {/* Facebook Meta Tags */}
-            <meta property="og:url" content="https://entrusted.io" />
+            <meta property="og:url" content={siteUrl} />
             <meta property="og:type" content="website" />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />

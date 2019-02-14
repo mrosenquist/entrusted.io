@@ -7,6 +7,7 @@ import { get } from 'lodash';
 // import Bio from '../components/Bio'
 import { Section, Content, Title } from 'bloomer';
 import Layout from '../base';
+import DotDate from '../../organisms/post-item';
 
 class PostTemplate extends React.PureComponent {
   render() {
@@ -29,6 +30,7 @@ class PostTemplate extends React.PureComponent {
         <Section className="section--post">
           <Title className="title--post_main">{post.frontmatter.title}</Title>
           {featuredImage && <Img className="image--post_main" fluid={featuredImage} />}
+          <DotDate date={post.frontmatter.date} className="post-item__date" />
           <Content>
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </Content>
@@ -40,14 +42,6 @@ class PostTemplate extends React.PureComponent {
             }
           />
           {/* // <Bio /> */}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '3rem',
-            }}
-          >
-            {post.frontmatter.date}
-          </div>
           <ul
             style={{
               display: 'flex',

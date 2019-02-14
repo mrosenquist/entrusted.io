@@ -11,7 +11,7 @@ const Tags = props => {
   return (
     <div className={classNames(className, 'tags')}>
       {tags.map(tag => (
-        <Tag isColor="light">{tag}</Tag>
+        <Tag key={tag} isColor="light">{tag}</Tag>
       ))}
     </div>
   );

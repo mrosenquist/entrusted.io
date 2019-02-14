@@ -61,18 +61,6 @@ class PostItem extends React.PureComponent {
       excerpt,
       id,
     } = this.props;
-    const d = new Date(date);
-    const now = new Date();
-
-    const topDate =
-      now.getFullYear() !== d.getFullYear()
-        ? d.toLocaleDateString('en-GB', { month: 'short' })
-        : d.toLocaleDateString('en-GB', { year: 'numeric' });
-
-    const bottomDate =
-      now.getFullYear() !== d.getFullYear()
-        ? d.toLocaleDateString('en-GB', { day: 'numeric' })
-        : d.toLocaleDateString('en-GB', { month: 'short' });
 
     const { postStyle, imageStyle } = this.state;
     const featuredImageToUse = get(featuredImage, 'childImageSharp.fluid');
@@ -82,7 +70,7 @@ class PostItem extends React.PureComponent {
           {featuredImageToUse && (
             <Img className="post-item__image" post fluid={featuredImageToUse} style={imageStyle} />
           )}
-          <DotDate top={topDate} bottom={bottomDate} className="post-item__date" />
+          <DotDate date={date} className="post-item__date" />
 
           <div className="post-item__content">
             <Title tag="h2" isSize={4}>
