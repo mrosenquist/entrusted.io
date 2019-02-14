@@ -1,0 +1,7 @@
+ .tags {
+   justify-content: center;
+   &:not(:last-child) {
+     margin: 0;
+   }
+ }
+

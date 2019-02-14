@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 import { get } from 'lodash';
 import Img from 'gatsby-image';
 import DotDate from '../../molecules/dot-date';
+import Tags from '../../molecules/tags';
 
 class PostItem extends React.PureComponent {
   constructor(props) {
@@ -77,17 +78,20 @@ class PostItem extends React.PureComponent {
     const featuredImageToUse = get(featuredImage, 'childImageSharp.fluid');
     return (
       <Link to={slug}>
-      <div className="post-item" style={postStyle} ref={this.ref} id={id}>
-        {featuredImageToUse && <Img className="post-item__image" post fluid={featuredImageToUse} style={imageStyle} />}
-        <DotDate top={topDate} bottom={bottomDate} className="post-item__date" />
-        <div className="post-item__content">
-          <Title tag="h2" isSize={4}>
-            {title}
-          </Title>
-          <p>{description || excerpt}</p>
-          <div>{tags}</div>
+        <div className="post-item" style={postStyle} ref={this.ref} id={id}>
+          {featuredImageToUse && (
+            <Img className="post-item__image" post fluid={featuredImageToUse} style={imageStyle} />
+          )}
+          <DotDate top={topDate} bottom={bottomDate} className="post-item__date" />
+
+          <div className="post-item__content">
+            <Title tag="h2" isSize={4}>
+              {title}
+            </Title>
+            <Tags tags={tags} />
+            <p>{description || excerpt}</p>
+          </div>
         </div>
-      </div>
       </Link>
     );
   }
