@@ -1,6 +1,6 @@
 ---
 title: Computer Security – It’s not your fault, but that doesn’t matter
-date: "2015-03-15T22:12:03.284Z"
+date: "2018-03-15T22:12:03.284Z"
 published: true
 tags: ["security"]
 featuredImage: "./security.jpg"
