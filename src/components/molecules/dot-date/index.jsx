@@ -8,7 +8,9 @@ const DotDate = props => {
   const now = new Date();
   console.log(d.toISOString(), now.toISOString());
 
-  const currentYear = now.getFullYear() === d.getFullYear();
+  const currentYear =
+    now.getFullYear() === d.getFullYear() ||
+    (now.getFullYear() === d.getFullYear() + 1 && now.getMonth() < d.getMonth());
 
   const topDate = currentYear
     ? d.toLocaleDateString('en-GB', { month: 'short' })
