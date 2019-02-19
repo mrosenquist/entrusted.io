@@ -6,16 +6,17 @@ const DotDate = props => {
   const { className, date } = props;
   const d = new Date(date);
   const now = new Date();
+  console.log(d.toISOString(), now.toISOString());
 
-  const topDate =
-    now.getFullYear() !== d.getFullYear()
-      ? d.toLocaleDateString('en-GB', { month: 'short' })
-      : d.toLocaleDateString('en-GB', { year: 'numeric' });
+  const currentYear = now.getFullYear() === d.getFullYear();
 
-  const bottomDate =
-    now.getFullYear() !== d.getFullYear()
-      ? d.toLocaleDateString('en-GB', { day: 'numeric' })
-      : d.toLocaleDateString('en-GB', { month: 'short' });
+  const topDate = currentYear
+    ? d.toLocaleDateString('en-GB', { month: 'short' })
+    : d.toLocaleDateString('en-GB', { year: 'numeric' });
+
+  const bottomDate = currentYear
+    ? d.toLocaleDateString('en-GB', { day: 'numeric' })
+    : d.toLocaleDateString('en-GB', { month: 'short' });
 
   return (
     <div className={classNames(className, 'dot-date')}>
