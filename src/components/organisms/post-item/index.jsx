@@ -1,5 +1,5 @@
 import React from 'react';
-import { Title } from 'bloomer';
+import { Title} from 'bloomer';
 import { Link } from 'gatsby';
 import { get } from 'lodash';
 import Img from 'gatsby-image';
@@ -57,7 +57,10 @@ class PostItem extends React.PureComponent {
   render() {
     const {
       frontmatter: { featuredImage, title, date, tags, description },
-      fields: { slug },
+      fields: {
+        slug,
+        readingTime: { text: readTime },
+      },
       excerpt,
       id,
     } = this.props;
@@ -78,6 +81,20 @@ class PostItem extends React.PureComponent {
             </Title>
             <Tags tags={tags} />
             <p>{description || excerpt}</p>
+          </div>
+          <hr style={{ padding: 0, margin: '0 0 0.5rem', height: '1px', color: 'lightgrey' }} />
+          {/* // <Bio /> */}
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              transformOrigin: 'left top',
+              transform: 'skewY(-1.1deg)',
+              paddingBottom: '0.25rem',
+            }}
+          >
+            <span className="post-item__readtime" style={{ fontSize: '0.8rem' }}>{readTime}</span>
           </div>
         </div>
       </Link>

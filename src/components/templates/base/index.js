@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { get } from 'lodash';
 import 'font-awesome/css/font-awesome.css';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 import '../all.scss';
-import { StaticQuery, Link, graphql } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 import { Container, Hero, HeroHeader, HeroBody, Title } from 'bloomer';
 
 import AppHeader from '../../organisms/header';

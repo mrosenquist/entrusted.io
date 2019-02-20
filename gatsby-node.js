@@ -1,6 +1,10 @@
 const { get } = require('lodash');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
+
+const devMode = (process.env.ACTIVE_ENV || process.env.NODE_ENV || 'development') === 'development';
+
+console.log(devMode, process.env.NODE_ENV);
 // const { attachFields } = require('gatsby-plugin-node-fields');
 // TODO: https://github.com/gatsbyjs/gatsby/blob/master/docs/docs/adding-tags-and-categories-to-blog-posts.md
 // TODO: https://www.gatsbyjs.org/docs/add-seo-component/
@@ -18,7 +22,7 @@ exports.createPages = ({ graphql, actions }) => {
             allMarkdownRemark(
               sort: { fields: [frontmatter___date], order: DESC }
               limit: 10000
-              filter: { frontmatter: { published: { eq: true } } }
+              ${devMode ? '' : 'filter: { frontmatter: { published: { eq: true } } }'}
             ) {
               edges {
                 node {

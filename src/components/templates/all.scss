@@ -18,7 +18,7 @@ $clip-path: polygon(-5% $slant, 105% 0, 105% calc(100%  - 2vw), -5% 100%);
 $clip-path-bottom-only: polygon(-5% 0, 105% 0, 105% calc(100%  - 2vw), -5% 100%);
 $clip-path-top-only: polygon(-5% $slant, 105% 0, 105% 100%, -5% 100%);
 $link: #000;
-
+$code-background: #e5e5e5;
 
 @import "../../../node_modules/bulma";
 html {
@@ -37,8 +37,6 @@ body {
 .title--post_main {
   transform: skewY($skew);
   margin-bottom: 0!important;
-
-  //text-shadow: 1px 0px 6px black;
 }
 
 .image--post_main {
@@ -74,7 +72,6 @@ body {
   clip-path: $clip-path;
   padding-top: $slant;
   padding-bottom: 2rem;
-
 }
 
 .footer {
@@ -87,20 +84,27 @@ body {
   left: 0;
   right: 0;
 }
-
+pre,
+code {
+  background-color: $code-background;
+  background: radial-gradient(ellipse at center, $code-background 61%,#eeeeee 100%);
+}
+pre code {
+  background: none;
+}
 .post-item {
 
   &:hover {
-    transform: scale(1.05);
+    //transform: scale(1.05);
   }
 
-  transition-property: transform;
-  transition-duration: 750ms;
+  opacity: 1;
+  transform: translate(0, 20px);
+  transition-property: transform, opacity;
+  transition-duration: 1s;
   background: $post-background-color;
   clip-path: $clip-path;
-  //padding-bottom: $slant;
   background: radial-gradient(ellipse at center, #ffffff 61%,#e5e5e5 100%);;
-
 
   & .gatsby-image-wrapper {
     clip-path: $clip-path-bottom-only;
@@ -108,13 +112,12 @@ body {
 
   &__content {
     padding: 1rem;
-
-    & h2.title {
-      //transform-origin: left top;
-      //transform: rotate($skew);
-    }
   }
 
+  &.visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 }
 
 .column:nth-child(odd) .post-item__image {
@@ -130,5 +133,8 @@ body {
   .column.is-full-mobile:nth-child(odd) .post-item__image,
   .column.is-full-mobile:nth-child(odd) .post-item__image {
     height: 40vmin;
+  }
+  section.section {
+    padding: 0 0 2rem;
   }
 }

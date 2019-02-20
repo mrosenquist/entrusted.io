@@ -32,13 +32,7 @@ class PostTemplate extends React.PureComponent {
           {featuredImage && <Img className="image--post_main" fluid={featuredImage} />}
           <DotDate date={post.frontmatter.date} className="post-item__date" />
           <Content dangerouslySetInnerHTML={{ __html: post.html }} />
-          <hr
-            style={
-              {
-                // marginBottom: rhythm(1),
-              }
-            }
-          />
+          <hr />
           {/* // <Bio /> */}
           <ul
             style={{
@@ -56,7 +50,7 @@ class PostTemplate extends React.PureComponent {
                 <Link
                   to={previous.fields.slug}
                   rel="prev"
-                  style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', width: '45%' }}
                 >
                   ← {previous.frontmatter.title}
                 </Link>
@@ -67,7 +61,7 @@ class PostTemplate extends React.PureComponent {
                 <Link
                   to={next.fields.slug}
                   rel="next"
-                  style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                  style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', width: '45%' }}
                 >
                   {next.frontmatter.title} →
                 </Link>

@@ -1,9 +1,12 @@
+const devMode = (process.env.ACTIVE_ENV || process.env.NODE_ENV || 'development') === 'development';
+
 module.exports = {
   siteMetadata: {
     title: 'Entrusted',
     author: 'Matt Rosenquist',
     description: 'Blog and Profile site that focuses on security, development and parasitism.',
     siteUrl: 'https://entrusted.io',
+    devMode,
   },
   plugins: [
     'gatsby-plugin-sass',
@@ -40,7 +43,16 @@ module.exports = {
               quality: 65,
             },
           },
-          'gatsby-remark-prismjs',
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              showLineNumbers: false,
+              // If setting this to true, the parser won't handle and highlight inline
+              // code used in markdown i.e. single backtick code like `this`.
+              noInlineHighlight: false,
+            },
+          },
+          'gatsby-remark-reading-time',
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
         ],
