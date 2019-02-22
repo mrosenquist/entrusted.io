@@ -26,7 +26,8 @@ This inherently lead to:
 - Delays
 
 
-
+## The rise of agile
+Agile which has quickly become adopted as a great way of doing software development. With this the concept of cross-functional teams. 
 
 * devops
 * The bad
