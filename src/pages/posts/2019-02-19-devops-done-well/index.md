@@ -27,7 +27,7 @@ This inherently lead to:
 
 
 ## The rise of agile
-Agile which has quickly become adopted as a great way of doing software development. With this the concept of cross-functional teams. 
+Agile which has quickly become adopted as a great way of doing software development. With this the concept of cross-functional teams. The cross-functional teams 
 
 * devops
 * The bad
